@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SR8-eh-LNe">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Направление к ближайшему бару-->
+        <scene sceneID="7ye-Zr-rRB">
+            <objects>
+                <viewController id="McP-lG-9LW" customClass="CompassViewController" customModule="Nearest_bar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vrs-C8-oeh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="t9C-uN-35q">
+                                <rect key="frame" x="20" y="262" width="374" height="372"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="t9C-uN-35q" secondAttribute="height" multiplier="1:1" id="Z2K-gz-zDZ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нажмите на экран, чтобы перейти на карту с ближайшими барами" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2e6-OF-Lum">
+                                <rect key="frame" x="20" y="771" width="374" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="secondaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-Mr-H4q">
+                                <rect key="frame" x="114" y="138" width="186.5" height="20"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Идет загрузка..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYx-GJ-Z46">
+                                        <rect key="frame" x="0.0" y="0.0" width="141.5" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Zej-ay-J2Z">
+                                        <rect key="frame" x="149.5" y="0.0" width="37" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="aPd-vv-xBr"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6bS-lY-NK3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="2e6-OF-Lum" firstAttribute="leading" secondItem="6bS-lY-NK3" secondAttribute="leading" constant="20" id="H1P-OK-tLQ"/>
+                            <constraint firstItem="6bS-lY-NK3" firstAttribute="trailing" secondItem="2e6-OF-Lum" secondAttribute="trailing" constant="20" id="IhB-7z-yFR"/>
+                            <constraint firstItem="t9C-uN-35q" firstAttribute="centerX" secondItem="Vrs-C8-oeh" secondAttribute="centerX" id="b3C-aN-spA"/>
+                            <constraint firstItem="6bS-lY-NK3" firstAttribute="bottom" secondItem="2e6-OF-Lum" secondAttribute="bottom" constant="50" id="cfY-JN-kbI"/>
+                            <constraint firstItem="t9C-uN-35q" firstAttribute="centerY" secondItem="Vrs-C8-oeh" secondAttribute="centerY" id="gzt-Me-HAT"/>
+                            <constraint firstItem="hwe-Mr-H4q" firstAttribute="top" secondItem="6bS-lY-NK3" secondAttribute="top" constant="50" id="huN-ic-pAo"/>
+                            <constraint firstItem="6bS-lY-NK3" firstAttribute="trailing" secondItem="t9C-uN-35q" secondAttribute="trailing" constant="20" id="kcA-IF-NfF"/>
+                            <constraint firstItem="t9C-uN-35q" firstAttribute="leading" secondItem="6bS-lY-NK3" secondAttribute="leading" constant="20" id="qib-yg-sCh"/>
+                            <constraint firstItem="hwe-Mr-H4q" firstAttribute="centerX" secondItem="Vrs-C8-oeh" secondAttribute="centerX" id="rTF-2f-wwX"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="ntq-yq-6DW" appends="YES" id="APM-jA-U4D"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="Направление к ближайшему бару" id="VuR-Mk-KiZ"/>
+                    <connections>
+                        <outlet property="loadingIndicatorView" destination="Zej-ay-J2Z" id="aEd-47-Oap"/>
+                        <outlet property="loadingLabel" destination="BYx-GJ-Z46" id="gVq-yn-NZr"/>
+                        <outlet property="pressInstructionLabel" destination="2e6-OF-Lum" id="cN6-Bb-sz1"/>
+                        <outlet property="rotatingArrow" destination="t9C-uN-35q" id="wLj-25-ROt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjT-NO-EUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ntq-yq-6DW">
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" id="1Jh-mT-Kfv"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="79.6875"/>
+        </scene>
+        <!--Ближайшие бары на карте-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="Nearest_bar" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fjx-Gc-OrM">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Fjx-Gc-OrM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gyw-Lb-UJy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fjx-Gc-OrM" secondAttribute="bottom" id="MHP-rp-aBf"/>
+                            <constraint firstItem="Fjx-Gc-OrM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="OoF-dd-lMG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fjx-Gc-OrM" secondAttribute="trailing" id="eHT-Uf-aS5"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Ближайшие бары на карте" id="QL0-m5-XQ9"/>
+                    <connections>
+                        <outlet property="mapView" destination="Fjx-Gc-OrM" id="rJP-Lh-u4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023.1884057971015" y="79.6875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mtX-ZM-nSr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SR8-eh-LNe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="X0b-wb-gxo">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="McP-lG-9LW" kind="relationship" relationship="rootViewController" id="dYT-5Y-6JU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KHr-Tf-BQ8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-865.21739130434787" y="79.6875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow.up" catalog="system" width="120" height="128"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

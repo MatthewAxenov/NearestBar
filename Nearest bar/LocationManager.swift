@@ -12,16 +12,10 @@ import MapKit
 final class LocationManager: NSObject {
     
     let locationManager: CLLocationManager
-    //Делаем свойство класса, а не его образца
     static let shared = LocationManager()
-    //Когда будем в vc обращаться к shared - будем возвращать ссылку на созданный объект внутри класса.
     
     var currentLocation: CLLocation?
     
-    
-    //Теперь этот класс нельзя будет создать нигде кроме Location Manager. Singleton - паттерн, вызывается первый раз когда мы его инициализируем, потом живет в памяти
-    
-    //Приватный инициализатор - для того, чтобы нельзя было что-то переопределять
     
     private override init() {
         locationManager = CLLocationManager()
@@ -31,6 +25,8 @@ final class LocationManager: NSObject {
         locationManager.requestWhenInUseAuthorization()
     }
     
+    //MARK: Locations
+    
     func findLocation() {
         locationManager.startUpdatingLocation()
     }
@@ -39,7 +35,7 @@ final class LocationManager: NSObject {
         locationManager.stopUpdatingLocation()
     }
     
-    //MARK: Добавил mapView как параметр функции
+    //MARK: Find bars
     
     func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {        
         var region = MKCoordinateRegion()

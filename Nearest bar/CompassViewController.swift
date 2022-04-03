@@ -16,17 +16,9 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     private var updateTimer: Timer?
     
-    private var pointToShow: CLLocationCoordinate2D? {
-        didSet {
-            print(pointToShow?.longitude)
-        }
-    }
+    private var pointToShow: CLLocationCoordinate2D?
     
-    private var barAnnotations: [MKAnnotation]! {
-        didSet {
-            print(barAnnotations.first?.title)
-        }
-    }
+    private var barAnnotations: [MKAnnotation]!
     
     @IBOutlet weak var rotatingArrow: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
@@ -72,7 +64,6 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
                 let point = CLLocationCoordinate2D(latitude: nearest.coordinate.latitude, longitude: nearest.coordinate.longitude)
                 self.pointToShow = point
             }
-            print(self.barAnnotations.first!.title!)
         }
         LocationManager.shared.stopUpdatingLocation()
         hideLoading()
@@ -105,7 +96,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         loadingIndicatorView.startAnimating()
         loadingLabel.isHidden = false
         pressInstructionLabel.isHidden = true
-        
+        view.isUserInteractionEnabled = false
     }
     
     private func hideLoading(){
@@ -113,6 +104,8 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         loadingIndicatorView.stopAnimating()
         loadingLabel.isHidden = true
         pressInstructionLabel.isHidden = false
+        view.isUserInteractionEnabled = true
+
     }
     
     //MARK: Heading

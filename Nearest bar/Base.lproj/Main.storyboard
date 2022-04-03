@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-Mr-H4q">
-                                <rect key="frame" x="114" y="138" width="186.5" height="20"/>
+                                <rect key="frame" x="122.5" y="138" width="169.5" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Идет загрузка..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYx-GJ-Z46">
                                         <rect key="frame" x="0.0" y="0.0" width="141.5" height="20"/>
@@ -38,8 +38,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Zej-ay-J2Z">
-                                        <rect key="frame" x="149.5" y="0.0" width="37" height="20"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Zej-ay-J2Z">
+                                        <rect key="frame" x="149.5" y="0.0" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>

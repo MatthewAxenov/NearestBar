@@ -14,11 +14,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     @IBOutlet var mapView: MKMapView!
     
-    private var barAnnotations: [MKAnnotation]! {
-        didSet {
-            print(barAnnotations.first?.title)
-        }
-    }
+    private var barAnnotations: [MKAnnotation]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +31,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = item.placemark.coordinate
                 annotation.title = item.name
-//                print(annotation.title!)
                 tmpAnnotations.append(annotation)
                 self?.mapView?.addAnnotation(annotation)
             }

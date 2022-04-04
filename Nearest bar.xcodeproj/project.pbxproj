@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		985C42FA27FB28C80049A270 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C42F927FB28C80049A270 /* SearchViewController.swift */; };
 		9864E68D27EE3848003E7BA9 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9864E68C27EE3848003E7BA9 /* LocationManager.swift */; };
 		98AF6ED027D9F41100C967E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF6ECF27D9F41100C967E8 /* AppDelegate.swift */; };
 		98AF6ED227D9F41100C967E8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF6ED127D9F41100C967E8 /* SceneDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		985C42F927FB28C80049A270 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9864E68C27EE3848003E7BA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		98AF6ECC27D9F41100C967E8 /* Nearest bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nearest bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98AF6ECF27D9F41100C967E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				9864E68C27EE3848003E7BA9 /* LocationManager.swift */,
 				98AF6ED327D9F41100C967E8 /* MapViewController.swift */,
 				98AF6EE327DC942200C967E8 /* CompassViewController.swift */,
+				985C42F927FB28C80049A270 /* SearchViewController.swift */,
 				98AF6ED527D9F41100C967E8 /* Main.storyboard */,
 				98AF6ED827D9F41300C967E8 /* Assets.xcassets */,
 				98AF6EDA27D9F41300C967E8 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				985C42FA27FB28C80049A270 /* SearchViewController.swift in Sources */,
 				98AF6ED427D9F41100C967E8 /* MapViewController.swift in Sources */,
 				98AF6ED027D9F41100C967E8 /* AppDelegate.swift in Sources */,
 				9864E68D27EE3848003E7BA9 /* LocationManager.swift in Sources */,

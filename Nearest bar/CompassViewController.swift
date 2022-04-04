@@ -11,6 +11,8 @@ import MapKit
 
 //Проверка
 
+//Сыр
+
 
 class CompassViewController: UIViewController, CLLocationManagerDelegate {
     

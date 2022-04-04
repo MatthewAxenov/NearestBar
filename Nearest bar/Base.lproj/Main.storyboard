@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-Mr-H4q">
-                                <rect key="frame" x="122.5" y="138" width="169.5" height="20"/>
+                                <rect key="frame" x="122.5" y="118" width="169.5" height="20"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Идет загрузка..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BYx-GJ-Z46">
                                         <rect key="frame" x="0.0" y="0.0" width="141.5" height="20"/>
@@ -46,6 +46,18 @@
                                     <constraint firstAttribute="height" constant="20" id="aPd-vv-xBr"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-8K-EhB">
+                                <rect key="frame" x="190.5" y="146" width="33" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 м" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3X-c2-e0F">
+                                <rect key="frame" x="186.5" y="189" width="41.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6bS-lY-NK3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -53,13 +65,17 @@
                         <constraints>
                             <constraint firstItem="2e6-OF-Lum" firstAttribute="leading" secondItem="6bS-lY-NK3" secondAttribute="leading" constant="20" id="H1P-OK-tLQ"/>
                             <constraint firstItem="6bS-lY-NK3" firstAttribute="trailing" secondItem="2e6-OF-Lum" secondAttribute="trailing" constant="20" id="IhB-7z-yFR"/>
+                            <constraint firstItem="C3X-c2-e0F" firstAttribute="top" secondItem="pfW-8K-EhB" secondAttribute="bottom" constant="20" id="Ntf-yY-p6z"/>
                             <constraint firstItem="t9C-uN-35q" firstAttribute="centerX" secondItem="Vrs-C8-oeh" secondAttribute="centerX" id="b3C-aN-spA"/>
                             <constraint firstItem="6bS-lY-NK3" firstAttribute="bottom" secondItem="2e6-OF-Lum" secondAttribute="bottom" constant="50" id="cfY-JN-kbI"/>
                             <constraint firstItem="t9C-uN-35q" firstAttribute="centerY" secondItem="Vrs-C8-oeh" secondAttribute="centerY" id="gzt-Me-HAT"/>
-                            <constraint firstItem="hwe-Mr-H4q" firstAttribute="top" secondItem="6bS-lY-NK3" secondAttribute="top" constant="50" id="huN-ic-pAo"/>
+                            <constraint firstItem="hwe-Mr-H4q" firstAttribute="top" secondItem="6bS-lY-NK3" secondAttribute="top" constant="30" id="huN-ic-pAo"/>
                             <constraint firstItem="6bS-lY-NK3" firstAttribute="trailing" secondItem="t9C-uN-35q" secondAttribute="trailing" constant="20" id="kcA-IF-NfF"/>
                             <constraint firstItem="t9C-uN-35q" firstAttribute="leading" secondItem="6bS-lY-NK3" secondAttribute="leading" constant="20" id="qib-yg-sCh"/>
                             <constraint firstItem="hwe-Mr-H4q" firstAttribute="centerX" secondItem="Vrs-C8-oeh" secondAttribute="centerX" id="rTF-2f-wwX"/>
+                            <constraint firstItem="pfW-8K-EhB" firstAttribute="centerX" secondItem="Vrs-C8-oeh" secondAttribute="centerX" id="rhU-pS-yg2"/>
+                            <constraint firstItem="pfW-8K-EhB" firstAttribute="top" secondItem="hwe-Mr-H4q" secondAttribute="bottom" constant="8" symbolic="YES" id="rnt-V4-xtD"/>
+                            <constraint firstItem="C3X-c2-e0F" firstAttribute="centerX" secondItem="Vrs-C8-oeh" secondAttribute="centerX" id="uGY-Gm-upy"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="ntq-yq-6DW" appends="YES" id="APM-jA-U4D"/>
@@ -67,6 +83,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Направление к ближайшему бару" id="VuR-Mk-KiZ"/>
                     <connections>
+                        <outlet property="barLabel" destination="pfW-8K-EhB" id="gGD-C6-02c"/>
+                        <outlet property="distanceLabel" destination="C3X-c2-e0F" id="oAk-zd-0rz"/>
                         <outlet property="loadingIndicatorView" destination="Zej-ay-J2Z" id="aEd-47-Oap"/>
                         <outlet property="loadingLabel" destination="BYx-GJ-Z46" id="gVq-yn-NZr"/>
                         <outlet property="pressInstructionLabel" destination="2e6-OF-Lum" id="cN6-Bb-sz1"/>

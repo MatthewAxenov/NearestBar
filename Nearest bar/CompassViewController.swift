@@ -9,6 +9,8 @@ import UIKit
 import CoreLocation
 import MapKit
 
+//Проверка
+
 
 class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -18,12 +20,26 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     private var pointToShow: CLLocationCoordinate2D?
     
+    private var pointLocation: CLLocation? {
+        didSet {
+            guard let pointLocation = pointLocation else {
+                return
+            }
+
+            let distance = self.calculateDistance(from: pointLocation, to: LocationManager.shared.currentLocation!)
+            print(distance)
+            self.distanceLabel.text = distance + " м"
+        }
+    }
+    
     private var barAnnotations: [MKAnnotation]!
     
     @IBOutlet weak var rotatingArrow: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
     @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var pressInstructionLabel: UILabel!
+    @IBOutlet weak var barLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -36,7 +52,6 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidAppear(animated)
         startTimer()
         showLoading()
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -62,7 +77,10 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             self.barAnnotations = self.sortAnnotations(tmpAnnotations, location: location)
             if let nearest = self.barAnnotations.first {
                 let point = CLLocationCoordinate2D(latitude: nearest.coordinate.latitude, longitude: nearest.coordinate.longitude)
+                let pointLocation = CLLocation(latitude: point.latitude, longitude: point.longitude)
                 self.pointToShow = point
+                self.pointLocation = pointLocation
+                self.barLabel.text = nearest.title ?? ""
             }
         }
         LocationManager.shared.stopUpdatingLocation()
@@ -96,6 +114,8 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         loadingIndicatorView.startAnimating()
         loadingLabel.isHidden = false
         pressInstructionLabel.isHidden = true
+        barLabel.isHidden = true
+        distanceLabel.isHidden = true
         view.isUserInteractionEnabled = false
     }
     
@@ -104,6 +124,8 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         loadingIndicatorView.stopAnimating()
         loadingLabel.isHidden = true
         pressInstructionLabel.isHidden = false
+        barLabel.isHidden = false
+        distanceLabel.isHidden = false
         view.isUserInteractionEnabled = true
 
     }
@@ -121,7 +143,6 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             {
                 let angle = CGFloat(res).degreesToRadians
                 self.rotatingArrow.transform = CGAffineTransform(rotationAngle: -CGFloat(angle))
-//                print(heading, bearing)
             }
         }
         
@@ -143,6 +164,11 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             
             return (radiansBearing.radiansToDegrees>0) ? radiansBearing.radiansToDegrees : radiansBearing.radiansToDegrees + 360
         }
+    
+    func calculateDistance(from: CLLocation, to: CLLocation ) -> String {
+        let distance = Int(from.distance(from: to))
+        return String(distance)
+    }
     
     
 }

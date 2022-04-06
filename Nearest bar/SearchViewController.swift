@@ -26,6 +26,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
         
         super.viewDidLoad()
         
+        
         self.textField.delegate = self
 
         searchButton.layer.cornerRadius = 15
@@ -35,24 +36,24 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     }
     
     
+    @IBAction func backgroundTapped(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
+    
     
     //MARK: TextField Delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if searchActive == true {
             return textField.resignFirstResponder()
-        }
-        return false
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         if text.isEmpty {
          searchButton.isEnabled = false
-         searchButton.alpha = 0.5
         } else {
          searchButton.isEnabled = true
-         searchButton.alpha = 1.0
             }
          return true
     }

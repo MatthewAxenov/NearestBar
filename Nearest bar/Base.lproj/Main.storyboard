@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите интересующий вас запрос в строку поиска, после чего нажмите кнопку &quot;Поиск&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7X-QZ-YiJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите запрос в строку поиска, после чего нажмите кнопку &quot;Поиск&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7X-QZ-YiJ">
                                 <rect key="frame" x="20" y="364" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -49,24 +49,37 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JUh-Wy-MID">
                                 <rect key="frame" x="20" y="218" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Я ищу:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCh-lT-zyR">
+                                <rect key="frame" x="20" y="177" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aEA-wd-wf5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="S7X-QZ-YiJ" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="6Iw-J0-6TP"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="S7X-QZ-YiJ" secondAttribute="trailing" constant="20" id="GN0-It-AtB"/>
+                            <constraint firstItem="zCh-lT-zyR" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="Qby-3J-Reb"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="y0p-7H-iUA" secondAttribute="trailing" constant="20" id="Stf-Zi-n6h"/>
                             <constraint firstItem="y0p-7H-iUA" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="T2e-2g-GRh"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="bottom" secondItem="2jc-Cu-UO6" secondAttribute="bottom" constant="30" id="TOD-1g-GjJ"/>
                             <constraint firstItem="JUh-Wy-MID" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="VBr-aU-hvP"/>
                             <constraint firstItem="JUh-Wy-MID" firstAttribute="top" secondItem="aEA-wd-wf5" secondAttribute="top" constant="130" id="eD9-oK-KkW"/>
+                            <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="zCh-lT-zyR" secondAttribute="trailing" constant="20" id="ePA-Bx-ug8"/>
                             <constraint firstItem="y0p-7H-iUA" firstAttribute="top" secondItem="S7X-QZ-YiJ" secondAttribute="bottom" constant="30" id="pvn-y5-jrC"/>
+                            <constraint firstItem="JUh-Wy-MID" firstAttribute="top" secondItem="zCh-lT-zyR" secondAttribute="bottom" constant="20" id="qU2-DL-5Vv"/>
                             <constraint firstItem="S7X-QZ-YiJ" firstAttribute="top" secondItem="JUh-Wy-MID" secondAttribute="bottom" constant="112" id="tlS-H7-bjY"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="JUh-Wy-MID" secondAttribute="trailing" constant="20" id="uud-53-P7S"/>
                             <constraint firstItem="2jc-Cu-UO6" firstAttribute="centerX" secondItem="3cY-kr-xGV" secondAttribute="centerX" id="xN3-5I-VaF"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dW9-hk-CiM" appends="YES" id="5cp-jF-LN5"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Места рядом" id="saM-TU-XLA"/>
                     <connections>
@@ -75,6 +88,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GgS-C4-czd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dW9-hk-CiM">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="YSw-Pj-vq7" id="ERX-b7-pQI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-743.47826086956525" y="79.6875"/>
         </scene>

@@ -86,21 +86,11 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: Поиск бара
     
-    func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {
-        var region = MKCoordinateRegion()
-        region.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "\(search!)"
-        request.region = region
-        let search = MKLocalSearch(request: request)
-        search.start(completionHandler: completion)
-    }
     
     @objc func findNearest() {
         LocationManager.shared.findLocation()
         guard let location = LocationManager.shared.currentLocation else { return }
-        findLocalBars(for: location) { [weak self] response, error in
+        LocationManager.shared.findLocalPlaces(for: location, search: self.search) { [weak self] response, error in
             guard let self = self else { return }
             var tmpAnnotations = [MKAnnotation]()
             guard let response = response else { return }
@@ -117,6 +107,8 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
                 self.pointToShow = point
                 self.pointLocation = pointLocation
                 self.barLabel.text = nearest.title ?? ""
+//                let distance = self.calculateDistance(from: pointLocation, to: LocationManager.shared.currentLocation!)
+//                self.distanceLabel.text = distance + " м"
             }
         }
         LocationManager.shared.stopUpdatingLocation()
@@ -136,6 +128,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     func startTimer() {
         updateTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(findNearest), userInfo: nil, repeats: true)
+        
     }
     
     func stopTimer(){

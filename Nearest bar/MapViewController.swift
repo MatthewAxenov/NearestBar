@@ -39,7 +39,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         
         guard let currentLocation = LocationManager.shared.currentLocation else { return }
         render(currentLocation)
-        findLocalBars(for: currentLocation) { [weak self] response, error in
+        LocationManager.shared.findLocalPlaces(for: currentLocation, search: self.search) { [weak self] response, error in
             var tmpAnnotations = [MKAnnotation]()
             guard let response = response else { return }
             for item in response.mapItems {
@@ -53,16 +53,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {
-        var region = MKCoordinateRegion()
-        region.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "\(search!)"
-        request.region = region
-        let search = MKLocalSearch(request: request)
-        search.start(completionHandler: completion)
-    }
     
     func sortAnnotations(_ annotations: [MKAnnotation], location: CLLocation) -> [MKAnnotation] {
         let result = annotations.sorted { mk1, mk2 in

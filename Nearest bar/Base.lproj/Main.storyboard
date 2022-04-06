@@ -18,10 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="DrK-KR-aei">
-                                <rect key="frame" x="20" y="213" width="374" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите интересующий вас запрос в строку поиска, после чего нажмите кнопку &quot;Поиск&quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7X-QZ-YiJ">
                                 <rect key="frame" x="20" y="364" width="374" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -47,29 +43,35 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="McP-lG-9LW" kind="show" id="Ylr-8W-LGf"/>
+                                    <segue destination="McP-lG-9LW" kind="show" identifier="CompassSegue" id="Ylr-8W-LGf"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JUh-Wy-MID">
+                                <rect key="frame" x="20" y="218" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aEA-wd-wf5"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DrK-KR-aei" firstAttribute="top" secondItem="aEA-wd-wf5" secondAttribute="top" constant="125" id="3c2-m5-UkJ"/>
                             <constraint firstItem="S7X-QZ-YiJ" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="6Iw-J0-6TP"/>
-                            <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="DrK-KR-aei" secondAttribute="trailing" constant="20" id="BZ0-pq-StO"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="S7X-QZ-YiJ" secondAttribute="trailing" constant="20" id="GN0-It-AtB"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="y0p-7H-iUA" secondAttribute="trailing" constant="20" id="Stf-Zi-n6h"/>
                             <constraint firstItem="y0p-7H-iUA" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="T2e-2g-GRh"/>
                             <constraint firstItem="aEA-wd-wf5" firstAttribute="bottom" secondItem="2jc-Cu-UO6" secondAttribute="bottom" constant="30" id="TOD-1g-GjJ"/>
-                            <constraint firstItem="S7X-QZ-YiJ" firstAttribute="top" secondItem="DrK-KR-aei" secondAttribute="bottom" constant="100" id="noh-GK-OaE"/>
+                            <constraint firstItem="JUh-Wy-MID" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="VBr-aU-hvP"/>
+                            <constraint firstItem="JUh-Wy-MID" firstAttribute="top" secondItem="aEA-wd-wf5" secondAttribute="top" constant="130" id="eD9-oK-KkW"/>
                             <constraint firstItem="y0p-7H-iUA" firstAttribute="top" secondItem="S7X-QZ-YiJ" secondAttribute="bottom" constant="30" id="pvn-y5-jrC"/>
-                            <constraint firstItem="DrK-KR-aei" firstAttribute="leading" secondItem="aEA-wd-wf5" secondAttribute="leading" constant="20" id="sgC-2G-FM7"/>
+                            <constraint firstItem="S7X-QZ-YiJ" firstAttribute="top" secondItem="JUh-Wy-MID" secondAttribute="bottom" constant="112" id="tlS-H7-bjY"/>
+                            <constraint firstItem="aEA-wd-wf5" firstAttribute="trailing" secondItem="JUh-Wy-MID" secondAttribute="trailing" constant="20" id="uud-53-P7S"/>
                             <constraint firstItem="2jc-Cu-UO6" firstAttribute="centerX" secondItem="3cY-kr-xGV" secondAttribute="centerX" id="xN3-5I-VaF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Места рядом" id="saM-TU-XLA"/>
                     <connections>
                         <outlet property="searchButton" destination="2jc-Cu-UO6" id="64E-P6-mDF"/>
+                        <outlet property="textField" destination="JUh-Wy-MID" id="acE-jt-6DJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GgS-C4-czd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -154,6 +156,7 @@
                         <outlet property="distanceLabel" destination="C3X-c2-e0F" id="oAk-zd-0rz"/>
                         <outlet property="loadingIndicatorView" destination="Zej-ay-J2Z" id="aEd-47-Oap"/>
                         <outlet property="loadingLabel" destination="BYx-GJ-Z46" id="gVq-yn-NZr"/>
+                        <outlet property="lowLabel" destination="2e6-OF-Lum" id="Rfd-7R-uJp"/>
                         <outlet property="pressInstructionLabel" destination="2e6-OF-Lum" id="cN6-Bb-sz1"/>
                         <outlet property="rotatingArrow" destination="t9C-uN-35q" id="wLj-25-ROt"/>
                     </connections>
@@ -161,7 +164,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjT-NO-EUq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="ntq-yq-6DW">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="1Jh-mT-Kfv"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowMap" id="1Jh-mT-Kfv"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

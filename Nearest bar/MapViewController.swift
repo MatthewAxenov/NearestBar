@@ -12,6 +12,19 @@ import CoreLocation
 
 class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+    var search: String!
+    
+    var navTitle: String {
+        switch search {
+        case "бар", "ресторан", "магазин", "кинотеатр", "салон": return "Ближайшие \(search!)ы на карте"
+        case "парк", "банк": return "Ближайшие \(search!)и на карте"
+        case "кафе": return "Ближайшие \(search!) на карте"
+        case "продукты", "продуктовый": return "Ближайшие продуктовые на карте"
+            
+        default: return "Карта ближайших мест"
+        }
+    }
+    
     @IBOutlet var mapView: MKMapView!
     
     private var barAnnotations: [MKAnnotation]!
@@ -21,10 +34,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         barAnnotations = []
         mapView.delegate = self
         mapView.showsUserLocation = true
+
+        navigationItem.title = navTitle
         
         guard let currentLocation = LocationManager.shared.currentLocation else { return }
         render(currentLocation)
-        LocationManager.shared.findLocalBars(for: currentLocation) { [weak self] response, error in
+        findLocalBars(for: currentLocation) { [weak self] response, error in
             var tmpAnnotations = [MKAnnotation]()
             guard let response = response else { return }
             for item in response.mapItems {
@@ -36,6 +51,17 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             }
             self?.barAnnotations = self?.sortAnnotations(tmpAnnotations, location: currentLocation)
         }
+    }
+    
+    func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {
+        var region = MKCoordinateRegion()
+        region.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "\(search!)"
+        request.region = region
+        let search = MKLocalSearch(request: request)
+        search.start(completionHandler: completion)
     }
     
     func sortAnnotations(_ annotations: [MKAnnotation], location: CLLocation) -> [MKAnnotation] {

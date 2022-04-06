@@ -9,12 +9,31 @@ import UIKit
 import CoreLocation
 import MapKit
 
-//Проверка
-
-//Сыр
 
 
 class CompassViewController: UIViewController, CLLocationManagerDelegate {
+    
+    var search: String!
+    
+    var navTitle: String {
+        switch search {
+        case "бар", "ресторан", "магазин", "кинотеатр", "парк", "салон", "банк": return "\(search!)у"
+        case "кафе": return "кафе"
+        case "продукты", "продуктовый": return "продуктовому"
+            
+        default: return "месту"
+        }
+    }
+    
+    var lowLabelPlace: String {
+        switch search {
+        case "бар", "ресторан", "магазин", "кинотеатр", "парк", "салон", "банк": return "\(search!)ами"
+        case "кафе": return "кафе"
+        case "продукты", "продуктовый": return "продуктовыми"
+            
+        default: return "интересующими вас местами"
+        }
+    }
     
     let locationManager = LocationManager.shared.locationManager
     
@@ -42,12 +61,16 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var pressInstructionLabel: UILabel!
     @IBOutlet weak var barLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var lowLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         locationManager.startUpdatingHeading()
+        navigationItem.title = "Направление к ближайшему \(navTitle)"
+        lowLabel.text = "Нажмите на экран, чтобы перейти на карту с ближайшими \(lowLabelPlace)"
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,10 +86,21 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: Поиск бара
     
+    func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {
+        var region = MKCoordinateRegion()
+        region.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "\(search!)"
+        request.region = region
+        let search = MKLocalSearch(request: request)
+        search.start(completionHandler: completion)
+    }
+    
     @objc func findNearest() {
         LocationManager.shared.findLocation()
         guard let location = LocationManager.shared.currentLocation else { return }
-        LocationManager.shared.findLocalBars(for: location) { [weak self] response, error in
+        findLocalBars(for: location) { [weak self] response, error in
             guard let self = self else { return }
             var tmpAnnotations = [MKAnnotation]()
             guard let response = response else { return }
@@ -170,6 +204,17 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     func calculateDistance(from: CLLocation, to: CLLocation ) -> String {
         let distance = Int(from.distance(from: to))
         return String(distance)
+    }
+    
+    //MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowMap" {
+            
+            let mapViewController = segue.destination as! MapViewController
+            mapViewController.search = self.search
+            
+        }
     }
     
     

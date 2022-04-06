@@ -37,16 +37,16 @@ final class LocationManager: NSObject {
     
     //MARK: Find bars
     
-    func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {        
-        var region = MKCoordinateRegion()
-        region.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = "Бар"
-        request.region = region
-        let search = MKLocalSearch(request: request)
-        search.start(completionHandler: completion)
-    }
+//    func findLocalBars(for location:CLLocation, completion: @escaping ((MKLocalSearch.Response?, Error?)->())) {        
+//        var region = MKCoordinateRegion()
+//        region.center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+//        
+//        let request = MKLocalSearch.Request()
+//        request.naturalLanguageQuery = "Бар"
+//        request.region = region
+//        let search = MKLocalSearch(request: request)
+//        search.start(completionHandler: completion)
+//    }
     
 }
 

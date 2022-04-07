@@ -46,7 +46,6 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             guard let pointLocation = pointLocation else {
                 return
             }
-
             let distance = self.calculateDistance(from: pointLocation, to: LocationManager.shared.currentLocation!)
             print(distance)
             self.distanceLabel.text = distance + " м"
@@ -128,7 +127,6 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     func startTimer() {
         updateTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(findNearest), userInfo: nil, repeats: true)
-        
     }
     
     func stopTimer(){

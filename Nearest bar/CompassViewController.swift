@@ -39,11 +39,13 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
     //MARK: Location prop
     
-    //Upd
+    //MARK: Update (second locationManager)
     
     var currentLocation: CLLocation?
     
     let manager = CLLocationManager()
+    
+    
     
     let locationManager = LocationManager.shared.locationManager
     
@@ -95,6 +97,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        //Update
         
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.delegate = self
@@ -109,7 +112,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         stopTimer()
     }
     
-    //MARK: Location Manager
+    //MARK: Update. Location Manager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
@@ -117,10 +120,13 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-    //MARK: Place serch
+    //MARK: Place serch (update)
     
     
     @objc func findNearest() {
+        
+        //Update
+        
 //        LocationManager.shared.findLocation()
         
         manager.startUpdatingLocation()

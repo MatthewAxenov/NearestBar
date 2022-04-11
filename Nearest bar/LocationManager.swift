@@ -12,6 +12,7 @@ import MapKit
 final class LocationManager: NSObject {
     
     let locationManager: CLLocationManager
+    
     static let shared = LocationManager()
     
     var currentLocation: CLLocation?

@@ -81,7 +81,7 @@
                             <outletCollection property="gestureRecognizers" destination="dW9-hk-CiM" appends="YES" id="5cp-jF-LN5"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Места рядом" id="saM-TU-XLA"/>
+                    <navigationItem key="navigationItem" title="Места рядом" largeTitleDisplayMode="always" id="saM-TU-XLA"/>
                     <connections>
                         <outlet property="searchButton" destination="2jc-Cu-UO6" id="64E-P6-mDF"/>
                         <outlet property="textField" destination="JUh-Wy-MID" id="acE-jt-6DJ"/>
@@ -133,14 +133,14 @@
                                     <constraint firstAttribute="height" constant="20" id="aPd-vv-xBr"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бар" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-8K-EhB">
-                                <rect key="frame" x="190.5" y="146" width="33" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfW-8K-EhB">
+                                <rect key="frame" x="207" y="146" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 м" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3X-c2-e0F">
-                                <rect key="frame" x="186.5" y="189" width="41.5" height="23"/>
+                                <rect key="frame" x="186.5" y="166" width="41.5" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

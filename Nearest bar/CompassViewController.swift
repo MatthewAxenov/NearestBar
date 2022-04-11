@@ -13,6 +13,8 @@ import MapKit
 
 class CompassViewController: UIViewController, CLLocationManagerDelegate {
     
+    //MARK: Search prop
+    
     var search: String!
     
     var navTitle: String {
@@ -35,6 +37,14 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    //MARK: Location prop
+    
+    //Upd
+    
+    var currentLocation: CLLocation?
+    
+    let manager = CLLocationManager()
+    
     let locationManager = LocationManager.shared.locationManager
     
     private var updateTimer: Timer?
@@ -46,13 +56,23 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             guard let pointLocation = pointLocation else {
                 return
             }
-            let distance = self.calculateDistance(from: pointLocation, to: LocationManager.shared.currentLocation!)
-            print(distance)
+//            let distance = self.calculateDistance(from: pointLocation, to: LocationManager.shared.currentLocation!)
+            
+            guard let currentLocation = currentLocation else {
+                return
+            }
+
+            
+            let distance = self.calculateDistance(from: pointLocation, to: currentLocation)
+
             self.distanceLabel.text = distance + " м"
         }
     }
     
     private var barAnnotations: [MKAnnotation]!
+    
+    
+    //MARK: Outlets
     
     @IBOutlet weak var rotatingArrow: UIImageView!
     @IBOutlet weak var loadingLabel: UILabel!
@@ -62,6 +82,7 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var lowLabel: UILabel!
     
+    //MARK: VC lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,11 +90,16 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingHeading()
         navigationItem.title = "Направление к ближайшему \(navTitle)"
         lowLabel.text = "Нажмите на экран, чтобы перейти на карту с ближайшими \(lowLabelPlace)"
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.delegate = self
+        manager.requestWhenInUseAuthorization()
+        
         startTimer()
         showLoading()
     }
@@ -83,12 +109,31 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
         stopTimer()
     }
     
-    //MARK: Поиск бара
+    //MARK: Location Manager
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            currentLocation = location
+        }
+    }
+    
+    //MARK: Place serch
     
     
     @objc func findNearest() {
-        LocationManager.shared.findLocation()
-        guard let location = LocationManager.shared.currentLocation else { return }
+//        LocationManager.shared.findLocation()
+        
+        manager.startUpdatingLocation()
+        
+        guard let location = currentLocation else {
+            return
+        }
+        print(location)
+
+        
+//        guard let location = LocationManager.shared.currentLocation else { return }
+//        print(location)
+        
         LocationManager.shared.findLocalPlaces(for: location, search: self.search) { [weak self] response, error in
             guard let self = self else { return }
             var tmpAnnotations = [MKAnnotation]()
@@ -106,11 +151,11 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
                 self.pointToShow = point
                 self.pointLocation = pointLocation
                 self.barLabel.text = nearest.title ?? ""
-//                let distance = self.calculateDistance(from: pointLocation, to: LocationManager.shared.currentLocation!)
-//                self.distanceLabel.text = distance + " м"
             }
         }
-        LocationManager.shared.stopUpdatingLocation()
+//        LocationManager.shared.stopUpdatingLocation()
+        
+        manager.stopUpdatingLocation()
         hideLoading()
     }
     

@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		985C42F927FB28C80049A270 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9864E68C27EE3848003E7BA9 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		98AF6ECC27D9F41100C967E8 /* Nearest bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nearest bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		98AF6ECC27D9F41100C967E8 /* Nearest places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nearest places.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98AF6ECF27D9F41100C967E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98AF6ED127D9F41100C967E8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		98AF6ED327D9F41100C967E8 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		98AF6EC327D9F41100C967E8 = {
 			isa = PBXGroup;
 			children = (
-				98AF6ECE27D9F41100C967E8 /* Nearest bar */,
+				98AF6ECE27D9F41100C967E8 /* Nearest places */,
 				98AF6ECD27D9F41100C967E8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 		98AF6ECD27D9F41100C967E8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				98AF6ECC27D9F41100C967E8 /* Nearest bar.app */,
+				98AF6ECC27D9F41100C967E8 /* Nearest places.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		98AF6ECE27D9F41100C967E8 /* Nearest bar */ = {
+		98AF6ECE27D9F41100C967E8 /* Nearest places */ = {
 			isa = PBXGroup;
 			children = (
 				98AF6ECF27D9F41100C967E8 /* AppDelegate.swift */,
@@ -73,15 +73,15 @@
 				98AF6EDA27D9F41300C967E8 /* LaunchScreen.storyboard */,
 				98AF6EDD27D9F41300C967E8 /* Info.plist */,
 			);
-			path = "Nearest bar";
+			path = "Nearest places";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		98AF6ECB27D9F41100C967E8 /* Nearest bar */ = {
+		98AF6ECB27D9F41100C967E8 /* Nearest places */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 98AF6EE027D9F41300C967E8 /* Build configuration list for PBXNativeTarget "Nearest bar" */;
+			buildConfigurationList = 98AF6EE027D9F41300C967E8 /* Build configuration list for PBXNativeTarget "Nearest places" */;
 			buildPhases = (
 				98AF6EC827D9F41100C967E8 /* Sources */,
 				98AF6EC927D9F41100C967E8 /* Frameworks */,
@@ -91,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = "Nearest bar";
+			name = "Nearest places";
 			productName = "Nearest bar";
-			productReference = 98AF6ECC27D9F41100C967E8 /* Nearest bar.app */;
+			productReference = 98AF6ECC27D9F41100C967E8 /* Nearest places.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -111,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 98AF6EC727D9F41100C967E8 /* Build configuration list for PBXProject "Nearest bar" */;
+			buildConfigurationList = 98AF6EC727D9F41100C967E8 /* Build configuration list for PBXProject "Nearest places" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -124,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				98AF6ECB27D9F41100C967E8 /* Nearest bar */,
+				98AF6ECB27D9F41100C967E8 /* Nearest places */,
 			);
 		};
 /* End PBXProject section */
@@ -361,7 +361,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		98AF6EC727D9F41100C967E8 /* Build configuration list for PBXProject "Nearest bar" */ = {
+		98AF6EC727D9F41100C967E8 /* Build configuration list for PBXProject "Nearest places" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98AF6EDE27D9F41300C967E8 /* Debug */,
@@ -370,7 +370,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		98AF6EE027D9F41300C967E8 /* Build configuration list for PBXNativeTarget "Nearest bar" */ = {
+		98AF6EE027D9F41300C967E8 /* Build configuration list for PBXNativeTarget "Nearest places" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				98AF6EE127D9F41300C967E8 /* Debug */,

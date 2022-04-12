@@ -214,7 +214,11 @@ class CompassViewController: UIViewController, CLLocationManagerDelegate {
             if newHeading.headingAccuracy < 0 { return }
             guard let nearest = pointToShow else { return }
             let heading: CLLocationDirection = ((newHeading.trueHeading > 0) ? newHeading.trueHeading : newHeading.magneticHeading)
-            guard let location = LocationManager.shared.currentLocation else { return }
+        
+//            guard let location = LocationManager.shared.currentLocation else { return }
+        
+            guard let location = currentLocation else { return }
+
             let bearing = getBearing(location: location, point: nearest)
             let res = CGFloat(heading) - CGFloat(bearing)
             UIView.animate(withDuration: 0.5)

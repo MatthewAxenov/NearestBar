@@ -46,7 +46,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     //MARK: TextField Delegate
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            return textField.resignFirstResponder()
+        return textField.resignFirstResponder()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

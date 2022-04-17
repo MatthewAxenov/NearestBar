@@ -303,7 +303,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CJB64PWWQJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Nearest bar/Info.plist";
+				INFOPLIST_FILE = "Nearest places/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow us to see your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to see your location!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -335,7 +335,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = CJB64PWWQJ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Nearest bar/Info.plist";
+				INFOPLIST_FILE = "Nearest places/Info.plist";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Please allow us to see your location";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Please allow us to see your location!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
